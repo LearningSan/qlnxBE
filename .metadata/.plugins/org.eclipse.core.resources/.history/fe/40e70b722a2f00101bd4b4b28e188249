@@ -1,0 +1,92 @@
+package Dao;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.sql.*;
+import java.util.*;
+
+import Util.ConnectionManager;
+import domain.KhachHang;
+
+public class KhachHangDao {
+	private Connection con;
+
+	public KhachHangDao() throws SQLException {
+		con = ConnectionManager.getInstance().getConnection();
+	}
+
+	public boolean findbyPhone(String sdt) {
+		List<KhachHang> ds = getDs();  // getDs() is assumed to fetch all KhachHang from DB
+
+	    for (KhachHang kh : ds) {
+	        if (kh.getTaikhoan().equals(sdt) ) {
+	            return true; // Found a matching user
+	        }
+	    }
+
+	    return false; // Not found
+	}
+	public boolean findbyPassword(String sdt, String password) {
+		List<KhachHang> ds = getDs();  // getDs() is assumed to fetch all KhachHang from DB
+
+	    for (KhachHang kh : ds) {
+	        if (kh.getTaikhoan().equals(sdt) && kh.getMatkhau().equals(password)) {
+	            return true; // Found a matching user
+	        }
+	    }
+
+	    return false; // Not found
+	}
+
+	public List<KhachHang> getDs() {
+		List<KhachHang> ds = new ArrayList<KhachHang>();
+
+		try {
+			Statement stmt;
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from khachhang");
+			while (rs.next()) {
+				KhachHang cus = new KhachHang(rs.getInt("makh"), rs.getString("hoten"), rs.getString("email"),
+						rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getString("tentaikhoan"),
+						rs.getString("matkhau"));
+				ds.add(cus);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ds;
+	}
+
+	public  String validate(String phone,String password) {
+		String error = "";
+
+		// Kiểm tra số điện thoại
+		if (phone == null || phone.trim().isEmpty()) {
+		    error = "phoneError=" + URLEncoder.encode("Vui lòng nhập số điện thoại", StandardCharsets.UTF_8);
+		} else if (!phone.matches("\\d+")) {
+		    error = "phoneError=" + URLEncoder.encode("Số điện thoại phải là số", StandardCharsets.UTF_8);
+		}
+
+		// Kiểm tra mật khẩu
+		if (error.isEmpty()) { // Chỉ kiểm tra mật khẩu nếu chưa có lỗi ở phone
+		    if (password == null || password.trim().isEmpty()) {
+		        error = "phoneError=" + URLEncoder.encode("Vui lòng nhập mật khẩu", StandardCharsets.UTF_8);
+		    } else if (password.length() < 3) {
+		        error = "phoneError=" + URLEncoder.encode("Mật khẩu phải có ít nhất 3 ký tự", StandardCharsets.UTF_8);
+		    }
+		}
+
+		// Kiểm tra đăng nhập
+		if (error.isEmpty()) {
+		    if (!findbyPhone(phone)) {
+		        error = "phoneError=" + URLEncoder.encode("Tài khoản không tồn tại", StandardCharsets.UTF_8);
+		    } else if (!findbyPassword(phone, password)) {
+		        error = "phoneError=" + URLEncoder.encode("Mật khẩu không đúng", StandardCharsets.UTF_8);
+		    }
+		}
+
+		return error;
+	}
+}
