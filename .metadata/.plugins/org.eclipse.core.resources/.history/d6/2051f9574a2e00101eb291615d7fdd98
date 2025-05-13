@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="sign_upstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="registration-container">
+    <div class="registration-wrapper">
+      <header class="registration-header">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5ada6c1c762fd5de9c40f838b465f2ae5bff376?placeholderIfAbsent=true" alt="Registration logo" class="registration-logo">
+        <h1 class="registration-title">Đăng Kí</h1>
+      </header>
+
+      <form class="registration-form">
+        <div class="form-group phone-input-container">
+          <div class="phone-input-wrapper">
+            <span class="country-code">+84</span>
+            <input
+              type="text"
+              placeholder="Nhập số điện thoại di động của ban"
+              class="phone-input"
+              aria-label="Phone number"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="password-input-wrapper">
+            <input
+              type="password"
+              placeholder="Nhập mật khẩu"
+              class="password-input"
+              aria-label="Password"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="password-confirm-wrapper">
+            <input
+              type="password"
+              placeholder="Nhập lại mật khẩu"
+              class="password-confirm-input"
+              aria-label="Confirm password"
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Tạo tài khoản</button>
+
+        <div class="alternative-options">
+          <p class="alternative-title">Đăng ký khác</p>
+          <div class="social-icons">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/944ccf6bb88441fc8423d035b80609169bed26b3?placeholderIfAbsent=true" alt="Social media login option" class="social-icon">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1a6a5b7fe7691deb0265680ff9bd92a6055869fb?placeholderIfAbsent=true" alt="Social media login option" class="social-icon">
+          </div>
+          <p class="terms-text">
+            <span class="terms-regular">Bằng cách đăng ký , bạn đã đồng ý mọi điều khoản và</span>
+            <span class="terms-highlight">quy định của chúng tôi</span>
+          </p>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

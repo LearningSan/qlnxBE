@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập</title>
+  <link rel="stylesheet" href="sign_instyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="login-container">
+    <div class="login-wrapper">
+      <section class="image-column">
+        <img src="https://cdn.builder.io/api/v1/image/assets/9cbeddd9969e4f428c70b8b975c6add2/e124c53b4010f880250abda646c083f99b06ecd0?placeholderIfAbsent=true" alt="Login illustration" class="hero-image">
+      </section>
+
+      <section class="form-column">
+        <div class="login-form-container">
+          <img src="https://cdn.builder.io/api/v1/image/assets/9cbeddd9969e4f428c70b8b975c6add2/d3f322756172444fbcd843b8fb3c68396e86a1e4?placeholderIfAbsent=true" alt="Logo" class="logo">
+          <h1 class="login-heading">Đăng Nhập</h1>
+
+          <div class="phone-input">
+            <span class="country-code">+84</span>
+            <span class="phone-placeholder">Nhập số điện thoại di động của ban</span>
+          </div>
+
+          <input type="password" placeholder="Mật khẩu" class="password-input">
+
+          <button type="submit" class="login-button">Đăng nhập</button>
+
+          <div class="account-actions">
+            <div class="signup-prompt">
+              <p class="no-account">Bạn chưa có tài khoản?</p>
+              <a href="#" class="signup-link">Đăng ký ngay</a>
+            </div>
+
+            <p class="alt-login">Đăng nhập khác</p>
+
+            <div class="social-login">
+              <img src="https://cdn.builder.io/api/v1/image/assets/9cbeddd9969e4f428c70b8b975c6add2/b039b4d3e7bb350eb1c6e5fa38d6c08744a1fdd5?placeholderIfAbsent=true" alt="Social login option" class="social-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/9cbeddd9969e4f428c70b8b975c6add2/58770de43a5da485e99972fbbb539d51b47cf658?placeholderIfAbsent=true" alt="Social login option" class="social-icon-alt">
+            </div>
+          </div>
+
+          <p class="terms-text">
+            Bằng cách đăng ký , bạn đã đồng ý mọi điều khoản và
+            <span class="terms-highlight">quy định của chúng tôi</span>
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

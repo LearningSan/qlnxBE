@@ -1,0 +1,66 @@
+package Servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Dao.KhachHangDao;
+
+/**
+ * Servlet implementation class Account
+ */
+@WebServlet("/Account")
+public class Account extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Account() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		  String fullname = request.getParameter("fullname");
+	        String gender = request.getParameter("gender");
+	        String email = request.getParameter("email");
+	        String diachi = request.getParameter("diachi");
+	        String ngaysinh = request.getParameter("ngaysinh");
+	        String phone = request.getParameter("phone");
+
+	        // Validate and update the user details in the database
+	        KhachHangDao khachHangDao = new KhachHangDao();
+	        String result = khachHangDao.updateUserInfo(phone, fullname, gender, email, diachi, ngaysinh);
+
+	        if (result.isEmpty()) {
+	            // Success: update user information in session
+	            request.getSession().setAttribute("fullname", fullname);
+	            request.getSession().setAttribute("email", email);
+	            request.getSession().setAttribute("phone", phone);
+	            request.getSession().setAttribute("diachi", diachi);
+	            request.getSession().setAttribute("ngaysinh", ngaysinh);
+	            
+	            // Redirect to the profile page or login page
+	            response.sendRedirect("Taikhoan/taikhoan.html");
+	        } else {
+	            // Error: something went wrong
+	            response.getWriter().println(result);
+	        }	}
+
+}

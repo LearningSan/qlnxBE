@@ -1,0 +1,85 @@
+package domain;
+
+import java.sql.Date;
+
+public class KhachHang {
+	private int makh;
+	private String hoten, email;
+	private Date ngaysinh;
+	private String diachi, taikhoan, matkhau;
+
+	public KhachHang() {
+		super();
+	}
+
+	public KhachHang(int makh, String hoten, String email, Date ngaysinh, String diachi, String taikhoan,
+			String matkhau) {
+		super();
+		this.makh = makh;
+		this.hoten = hoten;
+		this.email = email;
+		this.ngaysinh = ngaysinh;
+		this.diachi = diachi;
+		this.taikhoan = taikhoan;
+		this.matkhau = matkhau;
+	}
+
+
+
+	public int getMakh() {
+		return makh;
+	}
+
+	public void setMakh(int makh) {
+		this.makh = makh;
+	}
+
+	public String getHoten() {
+		return hoten;
+	}
+
+	public void setHoten(String hoten) {
+		this.hoten = hoten;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getNgaysinh() {
+		return ngaysinh;
+	}
+
+	public void setNgaysinh(Date ngaysinh) {
+		this.ngaysinh = ngaysinh;
+	}
+
+	public String getDiachi() {
+		return diachi;
+	}
+
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
+	}
+
+	public String getTaikhoan() {
+		return taikhoan;
+	}
+
+	public void setTaikhoan(String taikhoan) {
+		this.taikhoan = taikhoan;
+	}
+
+	public String getMatkhau() {
+		return matkhau;
+	}
+
+	public void setMatkhau(String matkhau) {
+		this.matkhau = matkhau;
+	}
+
+}

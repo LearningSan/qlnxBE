@@ -1,0 +1,67 @@
+package Servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Dao.KhachHangDao;
+import domain.KhachHang;
+
+/**
+ * Servlet implementation class AccountInfoServlet
+ */
+@WebServlet({ "/AccountInfoServlet", "/accountinfo" })
+public class AccountInfoServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AccountInfoServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		 String taikhoan = (String) request.getSession().getAttribute("taikhoan");
+
+	        if (taikhoan == null) {
+	            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+	            response.getWriter().write("{\"error\":\"Chưa đăng nhập\"}");
+	            return;
+	        }
+
+	        KhachHangDao dao = new KhachHangDao();
+	        KhachHang kh = dao.findByTaikhoan(taikhoan);
+
+	        if (kh != null) {
+	            response.setContentType("application/json;charset=UTF-8");
+	            response.getWriter().write("{"
+	                + "\"hoten\":\"" + kh.getHoten() + "\","
+	    	        + "\"gioitinh\":\"" + kh.getGioitinh() + "\","
+	                + "\"email\":\"" + kh.getEmail() + "\","
+	                + "\"diachi\":\"" + kh.getDiachi() + "\","
+	                + "\"ngaysinh\":\"" + kh.getNgaysinh() + "\","
+	                + "\"taikhoan\":\"" + kh.getTaikhoan() + "\""
+	                + "}");
+	        } else {
+	            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+	            response.getWriter().write("{\"error\":\"Không tìm thấy người dùng\"}");
+	        }	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
