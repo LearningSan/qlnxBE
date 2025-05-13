@@ -5,7 +5,14 @@
 .password-input {
   line-height: 1;
 }
-
+.error-message {
+	color: red;
+	font-weight: bold;
+	padding: 10px;
+	background-color: #f8d7da;
+	border: 1px solid #f5c6cb;
+	margin-bottom: 10px;
+}
 .registration-container {
   display: flex;
   min-height: 100vh;
@@ -103,13 +110,13 @@
 }
 
 .phone-input {
-  flex: 1;
+  
   color: #c9c9c9;
   font-family: Inter, sans-serif;
   font-size: 24px;
   border: none;
-  outline: none;
   height: 100%;
+  width: 100%;
 }
 
 .password-input-container {

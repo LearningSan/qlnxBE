@@ -18,8 +18,9 @@
 					alt="Registration logo" class="logo" />
 				<h1 class="title">Đăng Kí</h1>
 			</header>
+			<div id="errorMessages"></div>
 			<form class="registration-form" action="/Loginservlet/Sign_up"
-				method="get">
+				method="post">
 				<div class="form-group">
 					<div class="phone-input-container">
 						<span class="country-code">+84</span> 
@@ -37,7 +38,7 @@
 				<div class="form-group">
 					<div class="password-input-container">
 						<input type="password" placeholder="Nhập lại mật khẩu"
-							class="password-input" aria-label="Confirm password" namne="confirmPassword" />
+							class="password-input" aria-label="Confirm password" name="confirmPassword" />
 					</div>
 				</div>
 				<button type="submit" class="submit-button">Tạo tài khoản</button>
@@ -69,6 +70,7 @@
             const errorMessage = decodeURIComponent(value);
             errorMessagesDiv.innerHTML += `<div class="error-message">${errorMessage}</div>`;
         }
-    });</script>
+    });
+	</script>
 </body>
 </html>

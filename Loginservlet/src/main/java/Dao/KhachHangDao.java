@@ -107,7 +107,27 @@
 	
 		    // Kiểm tra số điện thoại đã tồn tại
 		    error = checkPhoneExist(phone);
-		    return error;
+		    
+		    // Cập nhật vào database nếu không có lỗi
+		    if(error.isEmpty()) {
+		    	updateNameandPassWordtoDB(phone, confirmPassword);
+		    }
+		    return error; 
+		}
+		public void updateNameandPassWordtoDB(String phone,String password) {
+			try {
+				String query="insert into khachhang(tentaikhoan,matkhau) values(?,?)";
+
+				PreparedStatement pstmt=con.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
+				pstmt.setString(1,phone);
+				pstmt.setString(2, password);
+				int affectRows=pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		public String checkPhone(String phone) {
 		    if (phone == null || phone.trim().isEmpty()) {
@@ -134,7 +154,7 @@
 		        return "phoneError=" + URLEncoder.encode("Tài khoản không tồn tại", StandardCharsets.UTF_8);
 		    }
 		    if (!findbyPassword(phone, password)) {
-		        return "phoneError=" + URLEncoder.encode("Mật khẩu không đúng", StandardCharsets.UTF_8);
+		        return "passwordError=" + URLEncoder.encode("Mật khẩu không đúng", StandardCharsets.UTF_8);
 		    }
 		    return "";
 		}

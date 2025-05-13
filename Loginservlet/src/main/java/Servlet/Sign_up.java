@@ -33,7 +33,14 @@ public class Sign_up extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	    String phone = request.getParameter("phone");
+	  	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
 
@@ -45,15 +52,8 @@ public class Sign_up extends HttpServlet {
             response.sendRedirect("Login/sign_in.html"); // Redirect to login page or success page
         } else {
             // If there's an error, append the error to the URL as a query parameter
-            response.sendRedirect("Login/sign_up.html?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("Login/sign_up.html?"+ error);
         }	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
-}
+
