@@ -1,4 +1,29 @@
-/* Base styles */
+
+.main-header a {
+  text-decoration: none;         /* Bỏ gạch chân */
+  color: grey;                   /* Màu chữ xám */
+  display: inline-block;
+  text-align: center;            /* Căn giữa nội dung trong thẻ a */
+}
+
+/* Căn giữa toàn bộ nav */
+.main-header .nav-list {
+  display: flex;
+  justify-content: center;       /* Căn giữa các mục theo chiều ngang */
+  align-items: center;           /* Căn giữa theo chiều dọc (nếu cần) */
+  gap: 40px;                     /* Khoảng cách giữa các mục */
+}
+
+/* Đảm bảo biểu tượng và văn bản cùng nằm giữa */
+.nav-link div,
+.nav-link span {
+  text-align: center;
+}
+
+/* Nếu bạn muốn màu xám khi hover cũng giữ nguyên */
+.main-header a:hover {
+  color: grey;
+}/* Base styles */
 * {
     margin: 0;
     padding: 0;

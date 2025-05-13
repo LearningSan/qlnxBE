@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tài khoản - Nhà xe Đông Nam Bộ</title>
+<link rel="stylesheet" href="taikhoanstyle.css">
+</head>
+
+<body>
+	<section class="main-content">
+		<form class="user-details-form" action="/Loginservlet/Account"
+			method="post">
+			<h2 class="form-title">Thông tin cá nhân</h2>
+			<div class="form-grid">
+				<div class="form-group">
+					<label for="fullname">Tên của bạn</label> <input type="text"
+						id="fullname" name="fullname" value="Trần Văn B" required>
+				</div>
+
+				<div class="form-group">
+					<label>Giới tính</label>
+					<div class="gender-options">
+						<label><input type="radio" name="gender" value="Nam"
+							checked> Nam</label> <label><input type="radio"
+							name="gender" value="Nữ"> Nữ</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="email">Địa chỉ email</label> <input type="email"
+						id="email" name="email" required>
+				</div>
+				<div class="form-group">
+					<label for="email">Địa chỉ</label> <input type="text" id="diachi"
+						name="diachi" required>
+				</div>
+				<div class="form-group">
+					<label for="dob">Ngày sinh</label> <input type="date" id="ngaysinh"
+						name="ngaysinh" required>
+				</div>
+
+				<div class="form-group">
+					<label for="phone">Số điện thoại</label> <input type="text"
+						id="phone" name="phone" required>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="edit-button">Lưu thay đổi</button>
+				</div>
+			</div>
+		</form>
+	</section>
+
+	<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    fetch("/accountinfo")
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          document.getElementById("fullname").value = data.hoten;
+          document.getElementById("email").value = data.email;
+          document.getElementById("diachi").value = data.diachi;
+          document.getElementById("ngaysinh").value = data.ngaysinh;
+          document.getElementById("phone").value = data.taikhoan;
+          document.getElementById("gender").value = data.gioitinh;
+        }
+      });
+  });
+</script>
+
+</body>
+
+</html>

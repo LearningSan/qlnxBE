@@ -6,34 +6,48 @@ public class KhachHang {
 	private int makh;
 	private String hoten, email;
 	private Date ngaysinh;
-	private String diachi, taikhoan, matkhau;
 
+
+	private String gioitinh;
+	private String diachi, taikhoan, matkhau;
+   
+	
 	public KhachHang() {
 		super();
 	}
 
-	public KhachHang(int makh, String hoten, String email, Date ngaysinh, String diachi, String taikhoan,
-			String matkhau) {
+	
+
+	public KhachHang(int makh, String hoten, String email, Date ngaysinh, String gioitinh, String diachi,
+			String taikhoan, String matkhau) {
 		super();
 		this.makh = makh;
 		this.hoten = hoten;
 		this.email = email;
 		this.ngaysinh = ngaysinh;
+		this.gioitinh = gioitinh;
 		this.diachi = diachi;
 		this.taikhoan = taikhoan;
 		this.matkhau = matkhau;
 	}
 
-
-
-	public KhachHang(String hoten, String email, Date ngaysinh, String diachi, String taikhoan, String matkhau) {
+	public KhachHang(String hoten, String email, Date ngaysinh, String gioitinh, String diachi, String taikhoan,
+			String matkhau) {
 		super();
 		this.hoten = hoten;
 		this.email = email;
 		this.ngaysinh = ngaysinh;
+		this.gioitinh = gioitinh;
 		this.diachi = diachi;
 		this.taikhoan = taikhoan;
 		this.matkhau = matkhau;
+	}
+	public String getGioitinh() {
+		return gioitinh;
+	}
+
+	public void setGioitinh(String gioitinh) {
+		this.gioitinh = gioitinh;
 	}
 
 	public int getMakh() {
@@ -95,7 +109,8 @@ public class KhachHang {
 	@Override
 	public String toString() {
 		return "KhachHang [makh=" + makh + ", hoten=" + hoten + ", email=" + email + ", ngaysinh=" + ngaysinh
-				+ ", diachi=" + diachi + ", taikhoan=" + taikhoan + ", matkhau=" + matkhau + "]";
+				+ ", gioitinh=" + gioitinh + ", diachi=" + diachi + ", taikhoan=" + taikhoan + ", matkhau=" + matkhau
+				+ "]";
 	}
 
 }

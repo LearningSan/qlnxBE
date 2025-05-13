@@ -50,18 +50,24 @@ public class Sign_in extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html; charset=UTF-8");
+	    response.setContentType("text/html; charset=UTF-8");
 
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        
-        String error = dao.validateSign_in(phone,password);
+	    String phone = request.getParameter("phone");
+	    String password = request.getParameter("password");
+	    
+	    String error = dao.validateSign_in(phone, password);
 
-        if (!error.isEmpty()) {
-            response.sendRedirect("Login/sign_in.html?" + error);
-        } else {
-            response.sendRedirect("Homepage/homepage.html");
-        }
+	    if (!error.isEmpty()) {
+	        response.sendRedirect("Login/sign_in.html?" + error);
+	    } else {
+	        // ✅ Save taikhoan to session
+	        request.getSession().setAttribute("taikhoan", phone);
+	        
+	        // ✅ Optional: also save user object if needed later
+	        // KhachHang user = dao.findByTaikhoan(phone);
+	        // request.getSession().setAttribute("user", user);
+	        
+	        response.sendRedirect("Homepage/homepage.html");
 	}
-
+	}
 }

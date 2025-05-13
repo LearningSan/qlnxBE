@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tài khoản - Nhà xe Đông Nam Bộ</title>
+  <link rel="stylesheet" href="taikhoanstyle.css">
+</head>
+
+<body>
+  <section class="main-content">
+    <form class="user-details-form" action="/Loginservlet/Account" method="post">
+      <h2 class="form-title">Thông tin cá nhân</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fullname">Tên của bạn</label>
+          <input type="text" id="fullname" name="fullname" value="Trần Văn B" required>
+        </div>
+
+        <div class="form-group">
+          <label>Giới tính</label>
+          <div class="gender-options">
+            <label><input type="radio" name="gender" value="Nam" checked> Nam</label>
+            <label><input type="radio" name="gender" value="Nữ"> Nữ</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Địa chỉ email</label>
+          <input type="email" id="email" name="email" value="abcd@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Địa chỉ</label>
+          <input type="text" id="diachi" name="diachi" value="Saigon" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Ngày sinh</label>
+          <input type="date" id="ngaysinh" name="ngaysinh" value="2025-05-10" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Số điện thoại</label>
+          <input type="text" id="phone" name="phone" value="23342341" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="edit-button">Lưu thay đổi</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  </div>
+  </div>
+  </main>
+</body>
+
+</html>

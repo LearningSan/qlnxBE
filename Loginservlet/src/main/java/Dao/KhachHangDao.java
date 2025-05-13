@@ -11,7 +11,40 @@
 	public class KhachHangDao {
 		private Connection con;
 	
-		
+		public KhachHangDao() {
+			try {
+				con=ConnectionManager.getInstance().getConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
+		}
+		public KhachHang findByTaikhoan(String taikhoan) {
+			 KhachHang kh = null;
+			    try {
+			        Connection con = ConnectionManager.getInstance().getConnection();
+			        String query = "SELECT * FROM khachhang WHERE tentaikhoan = ?";
+			        PreparedStatement stmt = con.prepareStatement(query);
+			        stmt.setString(1, taikhoan);
+			        ResultSet rs = stmt.executeQuery();
+
+			        if (rs.next()) {
+			            kh = new KhachHang(
+			                rs.getInt("makh"),
+			                rs.getString("hoten"),
+			                rs.getString("email"),
+			                rs.getDate("ngaysinh"),
+			                rs.getString("diachi"),
+			                rs.getString("tentaikhoan"),
+			                rs.getString("matkhau"),
+			                rs.getString("gioitinh") // make sure this column exists in DB
+			            );
+			        }
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
+			    return kh;
+		  }
 		public boolean findbyPhone(String sdt) {
 		
 			List<KhachHang> ds = getDs();  // getDs() is assumed to fetch all KhachHang from DB
@@ -52,7 +85,7 @@
 				ResultSet rs = stmt.executeQuery("select * from khachhang");
 				while (rs.next()) {
 					KhachHang cus = new KhachHang(rs.getInt("makh"), rs.getString("hoten"), rs.getString("email"),
-							rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getString("tentaikhoan"),
+							rs.getDate("ngaysinh"),rs.getString("gioitinh"), rs.getString("diachi"), rs.getString("tentaikhoan"),
 							rs.getString("matkhau"));
 					ds.add(cus);
 				}
@@ -172,5 +205,33 @@
 		    }
 		    return "";
 		}
-		
+		public String updateUserInfo(String phone, String fullname, String gender, String email, String diachi, String ngaysinh) {
+			try {
+				con=ConnectionManager.getInstance().getConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			};
+			try {
+		        String query = "UPDATE khachhang SET hoten = ?, gioitinh = ?, email = ?, diachi = ?, ngaysinh = ? WHERE tentaikhoan = ?";
+		        
+		        PreparedStatement pstmt = con.prepareStatement(query);
+		        pstmt.setString(1, fullname);
+		        pstmt.setString(2, gender);
+		        pstmt.setString(3, email);
+		        pstmt.setString(4, diachi);
+		        pstmt.setString(5, ngaysinh);
+		        pstmt.setString(6, phone);
+		        
+		        int affectedRows = pstmt.executeUpdate();
+		        if (affectedRows > 0) {
+		            return ""; // Success
+		        } else {
+		            return "Error: Update failed!";
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		        return "Error: " + e.getMessage();
+		    }
+		}
 	}
