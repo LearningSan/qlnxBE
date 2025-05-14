@@ -1,6 +1,7 @@
 package domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class KhachHang {
 	private int makh;
@@ -10,7 +11,8 @@ public class KhachHang {
 
 	private String gioitinh;
 	private String diachi, taikhoan, matkhau;
-   
+    private List<VeXe> danhSachVe;
+    private List<LienHe> danhSachLienHe;
 	
 	public KhachHang() {
 		super();

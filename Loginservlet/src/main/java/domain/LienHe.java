@@ -1,0 +1,12 @@
+package domain;
+
+import java.util.*;
+
+public class LienHe {
+    private int malh;
+    private KhachHang khachHang;
+    private NhanVien nhanVien;
+    private Date ngayGui;
+    private String trangThaiLienLac;
+    private String hinhThucLienLac;
+}

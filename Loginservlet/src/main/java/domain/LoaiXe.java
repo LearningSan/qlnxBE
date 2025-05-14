@@ -1,0 +1,14 @@
+package domain;
+
+import java.util.*;
+
+public class LoaiXe {
+    private int maxe;
+    private NhaXe nhaXe;
+    private String tenloaixe;
+    private String biensoxe;
+    private int tongsoghe;
+    private String trangthai;
+    private List<GheNgoi> danhSachGhe;
+    private List<ChuyenXe> danhSachChuyenXe;
+}

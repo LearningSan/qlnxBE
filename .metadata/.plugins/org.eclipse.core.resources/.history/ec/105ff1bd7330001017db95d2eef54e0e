@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="timchuyenxestyle.css">
+</head>
+<body>
+    <header class="booking-header">
+  <div class="header-container">
+    <div class="logo-section">
+      <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/0e6dc7296b293eb1fe8bf1067e6abf5fa0282e04?placeholderIfAbsent=true" alt="Company Logo" class="logo-image" />
+      <h1 class="main-title">ĐẶT VÉ XE</h1>
+    </div>
+    <nav class="auth-nav">
+      <a href="#login" class="auth-link">Đăng nhập</a>
+      <a href="#register" class="auth-link">Đăng ký</a>
+    </nav>
+  </div>
+  <main class="search-section">
+    <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/e98ae5dc37175e216fb5f11d11dbff5132269a70?placeholderIfAbsent=true" alt="Background" class="background-image" aria-hidden="true" />
+    <h2 class="search-title">TÌM CHUYẾN XE</h2>
+    <form class="search-form" role="search">
+      <div class="location-inputs">
+        <div class="input-column">
+          <div class="input-wrapper">
+            <div class="input-group">
+              <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/ed8ea5be0c7e5283fa3fdcb51c225758061136c7?placeholderIfAbsent=true" alt="Origin icon" class="location-icon" aria-hidden="true" />
+              <label for="origin" class="input-label">Điểm đi:</label>
+            </div>
+            <button type="button" class="dropdown-button" aria-label="Select origin">
+              <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/9a1a14929c4df977ddb3a0f988fb56f0f48354b0?placeholderIfAbsent=true" alt="Dropdown" class="dropdown-icon" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+        <div class="input-column">
+          <div class="input-wrapper">
+            <div class="input-group">
+              <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/ed8ea5be0c7e5283fa3fdcb51c225758061136c7?placeholderIfAbsent=true" alt="Destination icon" class="location-icon" aria-hidden="true" />
+              <label for="destination" class="input-label">Điểm đến:</label>
+            </div>
+            <button type="button" class="dropdown-button" aria-label="Select destination">
+              <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/9a1a14929c4df977ddb3a0f988fb56f0f48354b0?placeholderIfAbsent=true" alt="Dropdown" class="dropdown-icon" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="date-input">
+        <div class="input-group">
+          <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/4182c7395ab6186cbde71f45949797d1c8b83001?placeholderIfAbsent=true" alt="Calendar icon" class="calendar-icon" aria-hidden="true" />
+          <label for="departure-date" class="input-label">Ngày đi:</label>
+        </div>
+        <button type="button" class="calendar-button" aria-label="Select date">
+          <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/6524f1a84777e68b300ea502a3c778a14a130646?placeholderIfAbsent=true" alt="Calendar" class="calendar-dropdown-icon" aria-hidden="true" />
+        </button>
+      </div>
+      <button type="submit" class="search-button">Tìm chuyến</button>
+    </form>
+  </main>
+</header>
+
+
+</body>
+</html>

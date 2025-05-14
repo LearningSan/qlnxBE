@@ -1,0 +1,19 @@
+package domain;
+
+import java.util.*;
+
+public class ChuyenXe {
+    private int macx;
+    private LoaiXe xe;
+    private HanhTrinh hanhTrinh;
+    private NhaXe nhaXe;
+    private NhanVien nhanVien;
+    private Date gioKhoiHanh;
+    private Date gioDen;
+    private String trangThaiChuyenXe;
+    private int soGheTrong;
+    private int tongSoGhe;
+    private double giaVe;
+    private List<VeXe> danhSachVe;
+    private List<PhanCong> danhSachPhanCong;
+}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap');
+
+.schedule-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e5f7f5, #2b7c74);
+  padding: 24px;
+  font-family: 'Taviraj', serif;
+}
+
+.schedule-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.schedule-title {
+  font-size: 65px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 3px solid #0F766E;
+}
+
+.table-header {
+  background-color: #55C5BC;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 20px;
+  border: 3px solid #0F766E;
+}
+
+.header-cell {
+  font-size: 36px;
+  color: #000;
+  font-weight: 400;
+}
+
+.table-body {
+  background-color: #CFF6F3;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 20px;
+  border: 3px solid #0F766E;
+}
+
+.cell {
+  font-size: 36px;
+  color: #000;
+  font-weight: 400;
+}
+
+.book-button {
+  background-color: #30B1A5;
+  color: #FFF;
+  font-size: 36px;
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: 2px solid #0F766E;
+  cursor: pointer;
+  font-family: 'Taviraj', serif;
+  transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #2a9d92;
+}
+
+.book-button:focus {
+  outline: 3px solid #0F766E;
+  outline-offset: 2px;
+}
+
+@media (max-width: 991px) {
+  .schedule-title {
+    font-size: 50px;
+  }
+
+  .header-cell,
+  .cell,
+  .book-button {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .schedule-title {
+    font-size: 36px;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .cell,
+  .book-button {
+    font-size: 24px;
+  }
+}

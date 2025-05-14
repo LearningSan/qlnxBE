@@ -1,0 +1,171 @@
+/* Base styles and variables */
+:root {
+  --primary-color: #0F766E;
+  --secondary-color: #30B1A5;
+  --light-bg: #F9FFFE;
+  --lighter-bg: #EDFFFA;
+  --border-radius-sm: 15px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 25px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Taviraj', serif;
+}
+
+/* Main container */
+.seat-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #E6F7F4, #0F766E);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Title */
+.selection-title {
+  font-size: 65px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+/* Main content container */
+.selection-container {
+  display: flex;
+  gap: 40px;
+}
+
+/* Seat layout section */
+.seat-layout {
+  width: 473px;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius-sm);
+  border: 5px solid var(--primary-color);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+/* Seat grid */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+/* Seat columns */
+.seat-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Seat images */
+.seat-image {
+  width: 83px;
+  height: 141px;
+}
+
+/* Sidebar container */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Legend container */
+.legend-container {
+  background-color: var(--lighter-bg);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  width: 483px;
+}
+
+/* Legend grid */
+.legend-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Legend items */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Legend icons */
+.legend-icon {
+  width: 68px;
+  height: 108px;
+}
+
+/* Legend text */
+.legend-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/* Checkout button */
+.checkout-button {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Taviraj', serif;
+  color: #000;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--primary-color);
+  padding: var(--spacing-md);
+  width: 390px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .selection-title {
+    font-size: 50px;
+  }
+
+  .selection-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seat-layout {
+    width: 100%;
+  }
+
+  .legend-container {
+    width: 100%;
+  }
+
+  .checkout-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .selection-title {
+    font-size: 40px;
+  }
+
+  .seat-layout {
+    padding: 16px;
+  }
+}

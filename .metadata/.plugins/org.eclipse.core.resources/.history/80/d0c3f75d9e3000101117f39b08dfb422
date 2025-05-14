@@ -1,0 +1,12 @@
+import java.util.*;
+
+public class VeXe {
+    private int mave;
+    private KhachHang khachHang;
+    private GheNgoi gheNgoi;
+    private ChuyenXe chuyenXe;
+    private Date thoiGianDatVe;
+    private double tongTien;
+    private Date ngayDi;
+    private List<ThongBao> danhSachThongBao;
+}
