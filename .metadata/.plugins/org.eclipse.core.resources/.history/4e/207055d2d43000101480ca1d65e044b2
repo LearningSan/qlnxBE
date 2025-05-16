@@ -1,0 +1,34 @@
+package Dao;
+
+public class ChuyenXeDao {
+	public List<ChuyenXeDTO> getDanhSachChuyenXe(String diemDi, String diemDen, String ngayDi) {
+	    List<ChuyenXeDTO> danhSach = new ArrayList<>();
+	    String sql = "SELECT nx.tennhaxe, cx.giokhoihanh, cx.giave\r\n"
+	    		+ "	        FROM chuyenxe cx\r\n"
+	    		+ "	        JOIN hanhtrinh ht ON cx.maht = ht.maht\r\n"
+	    		+ "	        JOIN nhaxe nx ON cx.manhaxe = nx.manhaxe\r\n"
+	    		+ "	        WHERE ht.diemkhoihanh = ? AND ht.diemden = ? AND DATE(cx.giokhoihanh) = ?";
+
+	    try (Connection conn = DBUtil.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement;(sql)) {
+	        stmt.setString(1, diemDi);
+	        stmt.setString(2, diemDen);
+	        stmt.setString(3, ngayDi);
+
+	        try (ResultSet rs = stmt.executeQuery()) {
+	            while (rs.next()) {
+	                String tenNhaXe = rs.getString("tennhaxe");
+	                Timestamp gioKhoiHanh = rs.getTimestamp("giokhoihanh");
+	                double giaVe = rs.getDouble("giave");
+
+	                String gioFormatted = new SimpleDateFormat("HH:mm").format(gioKhoiHanh);
+	                danhSach.add(new ChuyenXeDTO(tenNhaXe, gioFormatted, giaVe));
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return danhSach;
+	}
+}

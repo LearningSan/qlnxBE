@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách chuyến xe</title>
+  <link rel="stylesheet" href="danhsachcxstyle.css" />
+
+</head>
+<body>
+  <header class="schedule-container">
+    <div class="schedule-wrapper">
+      <h1 class="schedule-title">DANH SÁCH CHUYẾN XE</h1>
+      <div class="schedule-table">
+        <div class="table-header">
+          <div class="header-cell">Nhà xe</div>
+          <div class="header-cell">Giờ xuất phát</div>
+          <div class="header-cell">Giá vé</div>
+          <div class="header-cell">Đặt vé</div>
+        </div>  
+        <div class="table-body" id="dynamic-rows">
+          <!-- Dynamic rows will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+	  const params = new URLSearchParams(window.location.search);
+	  const origin = params.get("origin");
+	  const destination = params.get("destination");
+	  const date = params.get("date");
+
+	  fetch(`/Loginservlet/ListChuyenXe?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&date=${encodeURIComponent(date)}`)
+	    .then(response => response.json())
+	    .then(data => {
+	      const tableBody = document.querySelector('.table-body');
+	      tableBody.innerHTML = ""; // Clear old rows
+
+	      data.forEach(chuyen => {
+	        const row = document.createElement('div');
+	        row.classList.add('table-row');
+
+	        row.innerHTML = `
+	          <div class="cell">${chuyen.tenNhaXe}</div>
+	          <div class="cell">${new Date(chuyen.gioKhoiHanh).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+	          <div class="cell">${chuyen.giaVe.toLocaleString('vi-VN')}vnđ</div>
+	          <div class="cell"><button class="book-button" aria-label="Đặt vé">Đặt vé</button></div>
+	        `;
+
+	        tableBody.appendChild(row);
+	      });
+	    })
+	    .catch(error => {
+	      console.error("Lỗi khi tải danh sách chuyến xe:", error);
+	    });
+	});
+  </script>
+</body>
+</html>

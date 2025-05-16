@@ -8,4 +8,5 @@ public class HanhTrinh {
     private String diemden;
     private double khoangcach;
     private List<ChuyenXe> danhSachChuyenXe;
+    
 }

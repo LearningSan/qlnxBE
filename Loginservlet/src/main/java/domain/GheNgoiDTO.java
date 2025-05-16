@@ -1,0 +1,32 @@
+package domain;
+
+public class GheNgoiDTO {
+	private String maghe;
+	private String tenghe;
+    private String trangthai;
+
+    public GheNgoiDTO() {
+		super();
+	}
+	
+	public GheNgoiDTO(String maghe, String tenghe, String trangthai) {
+		super();
+		this.maghe = maghe;
+		this.tenghe = tenghe;
+		this.trangthai = trangthai;
+	}
+
+	public String getTenghe() {
+		return tenghe;
+	}
+
+	public void setTenghe(String tenghe) {
+		this.tenghe = tenghe;
+	}
+
+	public String getMaghe() { return maghe; }
+    public void setMaghe(String maghe) { this.maghe = maghe; }
+
+    public String getTrangthai() { return trangthai; }
+    public void setTrangthai(String trangthai) { this.trangthai = trangthai; }
+}

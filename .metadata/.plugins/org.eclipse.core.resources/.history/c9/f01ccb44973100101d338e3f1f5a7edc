@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xe 16 cho</title>
+  <link rel="stylesheet" href="chonghestyle.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="seat-selection">
+    <h1 class="selection-title">Chọn ghế:</h1>
+    <div class="selection-container">
+       <section class="seat-layout">
+        <div class="seat-grid" id="seat-container">
+          <!-- Left Column -->
+          <div class="seat-column">
+            <div class="seat-wrapper">
+              <p class="seat-number">1</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 1" class="seat-image" data-type="available" data-seat-number="1" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">2</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 2" class="seat-image" data-type="available" data-seat-number="2" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">3</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 3" class="seat-image" data-type="available" data-seat-number="3" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">4</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 4" class="seat-image" data-type="available" data-seat-number="4" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">5</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 5" class="seat-image" data-type="available" data-seat-number="5" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">6</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 6" class="seat-image" data-type="available" data-seat-number="6" />
+            </div>
+            <img src="https://png.pngtree.com/png-vector/20190917/ourlarge/pngtree-box-logout-icon-vectors-png-image_1737862.jpg" alt="Logout Icon" class="logout-icon" />
+            <p class="door-image">Cửa ra vào</p>
+          </div>
+
+          <!-- Middle Column -->
+          <div class="seat-column">
+            <div class="seat-wrapper">
+              <p class="seat-number">7</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 7" class="seat-image" data-type="available" data-seat-number="7" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">8</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 8" class="seat-image" data-type="available" data-seat-number="8" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">9</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 9" class="seat-image" data-type="available" data-seat-number="9" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">10</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 10" class="seat-image" data-type="available" data-seat-number="10" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">11</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 11" class="seat-image" data-type="available" data-seat-number="11" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">12</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 12" class="seat-image" data-type="available" data-seat-number="12" />
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="seat-column">
+            <div class="seat-wrapper">
+              <p class="seat-number">13</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 13" class="seat-image" data-type="available" data-seat-number="13" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">14</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 14" class="seat-image" data-type="available" data-seat-number="14" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">15</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 15" class="seat-image" data-type="available" data-seat-number="15" />
+            </div>
+            <div class="seat-wrapper">
+              <p class="seat-number">16</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 16" class="seat-image" data-type="available" data-seat-number="16" />
+            </div>
+ <div class="seat-wrapper">
+              <p class="seat-number">17</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 17" class="seat-image" data-type="available" data-seat-number="17" />
+            </div>
+             <div class="seat-wrapper">
+              <p class="seat-number">18</p>
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Seat 18" class="seat-image" data-type="available" data-seat-number="18" />
+            </div>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/035134602faab646c04f3309d0670c722ff94e6d" alt="Driver seat" class="seat-image" />
+            <p class="seat-label">Tài xế</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="sidebar">
+        <section class="legend-container">
+          <div class="legend-grid">
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0bbcedd1aad4628758a681e1de84cbc8ad3ca1f2" alt="Selected seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế đang được chọn</p>
+            </div>
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d942587872f43a85f25f1e57322a69dfa8b7b63" alt="Sold seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế đã được chọn</p>
+            </div>
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b29d97d55170c2cbd53a6c1ade010426d2ab5f2a" alt="Available seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế trống</p>
+            </div>
+          </div>
+        </section>
+        <button class="checkout-button" aria-label="Proceed to payment">Chọn ghế</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  document.addEventListener('load', () => {
+    const params = new URLSearchParams(window.location.search);
+    const diemdi = params.get('diemdi');
+    const diemden = params.get('diemden');
+    const ngaydi = params.get('ngaydi');
+
+    if (!diemdi || !diemden || !ngaydi) {
+      console.error('Thiếu tham số truy vấn');
+      return;
+    }
+
+    fetch(`/Loginservlet/layghe?diemdi=${encodeURIComponent(diemdi)}&diemden=${encodeURIComponent(diemden)}&ngaydi=${encodeURIComponent(ngaydi)}`)
+      .then(response => {
+        if (!response.ok) throw new Error("Lỗi khi gọi API /layghe");
+        return response.json();
+      })
+      .then(data => {
+        data.forEach(ghe => {
+          const seatImg = document.querySelector(`img.seat-image[data-seat-number="${ghe.tenghe}"]`);
+console.log(seatImg);
+          if (seatImg) {
+            if (ghe.trangthai === 'Đã đặt') {
+              seatImg.src = 'https://cdn.builder.io/api/v1/image/assets/TEMP/7d942587872f43a85f25f1e57322a69dfa8b7b63';
+              seatImg.setAttribute('data-type', 'booked');
+            } else {
+              seatImg.src = 'https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320';
+              seatImg.setAttribute('data-type', 'available');
+            }
+          }
+        });
+      })
+      .catch(err => {
+        console.error('Lỗi khi tải danh sách ghế:', err);
+      });
+  });
+</script>
+</body>
+</html>
+

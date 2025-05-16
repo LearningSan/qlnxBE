@@ -59,9 +59,10 @@ body {
 
 /* Seat grid */
 .seat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+   display: grid;
+  grid-template-columns: repeat(3, 1fr); /* make 3 equal columns */
   gap: var(--spacing-sm);
+  justify-items: center; /* center each seat-column inside its grid cell */
   width: 100%;
 }
 
@@ -74,8 +75,13 @@ body {
 
 /* Seat images */
 .seat-image {
-  width: 83px;
-  height: 141px;
+  width: 60px;
+  height: 108px;  /* Same as your legend icons */
+  object-fit: cover;
+  box-sizing: border-box;
+  transition: transform 0.3s;
+  display: inline-block;
+  vertical-align: top;
 }
 
 /* Sidebar container */
@@ -169,3 +175,36 @@ body {
     padding: 16px;
   }
 }
+
+
+.seat-image:hover {
+  transform: scale(1.05);
+}
+
+.seat-selected {
+  filter: brightness(0.5) sepia(1) hue-rotate(180deg); /* You can adjust the effect */
+}
+.logout-icon {
+width: 90px;
+    height: 100px;
+}
+
+
+.seat-label,.door-image {
+  font-size: 18px; /* increase text size */
+  font-weight: bold; /* make it stand out */
+  margin-bottom: 5px;
+}
+
+ .seat-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .seat-number {
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+      user-select: none;
+    }

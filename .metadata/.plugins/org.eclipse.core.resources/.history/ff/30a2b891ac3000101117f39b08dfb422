@@ -1,0 +1,70 @@
+package Servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Dao.HanhTrinhDao;
+
+import java.util.*;
+/**
+ * Servlet implementation class TimChuyenXe
+ */
+@WebServlet("/TimChuyenXe")
+public class TimChuyenXe extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public TimChuyenXe() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		 // Set response content type to JSON
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+
+        try {
+            // Get locations (origins and destinations) from the database using HanhTrinhDao
+            Map<String, HashSet<String>> locations = HanhTrinhDao.getAllLocations();
+            HashSet<String> origins = locations.get("origins");
+            HashSet<String> destinations = locations.get("destinations");
+
+            // Prepare JSON response format
+            StringBuilder originsStr = new StringBuilder();
+            for (String origin : origins) {
+                if (originsStr.length() > 0) {
+                    originsStr.append(",");
+                }
+                originsStr.append("\"").append(origin).append("\"");
+            }
+
+            // Send the JSON response back to the client
+            out.print(originsStr.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.print("{\"error\":\"Server error\"}");
+        }	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

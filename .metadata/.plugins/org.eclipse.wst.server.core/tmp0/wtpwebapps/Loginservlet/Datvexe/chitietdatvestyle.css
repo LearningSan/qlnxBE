@@ -1,0 +1,247 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+/* Main container */
+.ticket-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #9CDBA7, #1A4D2E);
+  padding: 24px;
+}
+
+/* Ticket wrapper */
+.ticket-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ticket title */
+.ticket-title {
+  font-size: 96px;
+  color: #1E0D0D;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Ticket card */
+.ticket-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ticket details */
+.ticket-details {
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+}
+
+/* Ticket info items */
+.ticket-info {
+  font-size: 40px;
+  color: #4A4A4A;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+/* Additional info section */
+.ticket-additional-info {
+  margin-top: 40px;
+  height: 438px;
+  border: 1px solid #262323;
+  border-radius: 28px;
+  background-color: #ffffff;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .ticket-container {
+    padding: 20px;
+  }
+
+  .ticket-title {
+    font-size: 72px;
+  }
+
+  .ticket-card {
+    padding: 32px;
+  }
+
+  .ticket-details {
+    gap: 40px;
+  }
+
+  .ticket-info {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ticket-container {
+    padding: 16px;
+  }
+
+  .ticket-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+
+  .ticket-card {
+    padding: 24px;
+  }
+
+  .ticket-details {
+    gap: 24px;
+  }
+
+  .ticket-info {
+    font-size: 24px;
+  }
+}
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+/* Main container */
+.ticket-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #9CDBA7, #1A4D2E);
+  padding: 24px;
+}
+
+/* Ticket wrapper */
+.ticket-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ticket title */
+.ticket-title {
+  font-size: 96px;
+  color: #1E0D0D;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Ticket card */
+.ticket-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ticket details */
+.ticket-details {
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+}
+
+/* Ticket info items */
+.ticket-info {
+  font-size: 40px;
+  color: #4A4A4A;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+/* Additional info section */
+.ticket-additional-info {
+  margin-top: 40px;
+  height: 438px;
+  border: 1px solid #262323;
+  border-radius: 28px;
+  background-color: #ffffff;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .ticket-container {
+    padding: 20px;
+  }
+
+  .ticket-title {
+    font-size: 72px;
+  }
+
+  .ticket-card {
+    padding: 32px;
+  }
+
+  .ticket-details {
+    gap: 40px;
+  }
+
+  .ticket-info {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ticket-container {
+    padding: 16px;
+  }
+
+  .ticket-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+
+  .ticket-card {
+    padding: 24px;
+  }
+
+  .ticket-details {
+    gap: 24px;
+  }
+
+  .ticket-info {
+    font-size: 24px;
+  }
+}
+.thanhtoan{
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Taviraj', serif;
+  color: #000;
+  text-align: center;
+  background-color: #298f51;
+  border-radius: 10px;
+  border: 1px solid  ;
+  padding: var(--spacing-md);
+  width: 390px;
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+package Dao;
+
+import java.sql.*;
+
+import java.util.*;
+
+import Util.ConnectionManager;
+
+public class HanhTrinhDao {
+	private Connection con;
+
+	public HanhTrinhDao() {
+		try {
+			con = ConnectionManager.getInstance().getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		;
+	}
+
+	public static Map<String, HashSet<String>> getAllLocations() {
+		Map<String, HashSet<String>> result = new HashMap<String, HashSet<String>>();
+		HashSet<String> origins = new HashSet<String>();
+		HashSet<String> destinations = new HashSet<String>();
+
+		try {
+			Connection conn = ConnectionManager.getInstance().getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT diemkhoihanh, diemden FROM hanhtrinh");
+			while (rs.next()) {
+				String origin = rs.getString("diemkhoihanh");
+				String destination = rs.getString("diemden");
+
+				if (origin != null && !origin.isEmpty()) {
+					origins.add(origin);
+				}
+				if (destination != null && !destination.isEmpty()) {
+					destinations.add(destination);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace(); 
+		}
+
+		result.put("origins", origins);
+		result.put("destinations", destinations);
+		return result;
+	}
+}

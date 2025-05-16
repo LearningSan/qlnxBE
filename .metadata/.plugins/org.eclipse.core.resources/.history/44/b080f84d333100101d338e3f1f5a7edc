@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xe 16 cho</title>
+  <link rel="stylesheet" href="chonghestyle.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="seat-selection">
+    <h1 class="selection-title">Chọn ghế:</h1>
+    <div class="selection-container">
+      <section class="seat-layout">
+        <div class="seat-grid">
+          <div class="seat-column">
+                       <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+<img src="https://png.pngtree.com/png-vector/20190917/ourlarge/pngtree-box-logout-icon-vectors-png-image_1737862.jpg" alt="Logout Icon" class="logout-icon">
+           <p class="door-image">Cửa ra vào</p>
+
+          </div>
+
+          <div class="seat-column">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+          </div>
+
+          <div class="seat-column">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70fbdbcaad0a1bdafab7b44aa6eb2731de3d2320" alt="Available seat" class="seat-image" data-type="available">
+  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/035134602faab646c04f3309d0670c722ff94e6d" alt="Driver seat" class="seat-image">
+  <p class="seat-label">Tài xế</p>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="sidebar">
+        <section class="legend-container">
+          <div class="legend-grid">
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0bbcedd1aad4628758a681e1de84cbc8ad3ca1f2" alt="Selected seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế đang được chọn</p>
+            </div>
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d942587872f43a85f25f1e57322a69dfa8b7b63" alt="Sold seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế đã được chọn</p>
+            </div>
+            <div class="legend-item">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b29d97d55170c2cbd53a6c1ade010426d2ab5f2a" alt="Available seat icon" class="legend-icon">
+              <p class="legend-text">:Ghế trống</p>
+            </div>
+          </div>
+        </section>
+        <button class="checkout-button" aria-label="Proceed to payment">Chọn ghế</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  document.querySelectorAll('.seat-image[data-type="available"]').forEach(seat => {
+    const originalSrc = seat.src;
+    const hoverSrc = "https://cdn.builder.io/api/v1/image/assets/TEMP/0bbcedd1aad4628758a681e1de84cbc8ad3ca1f2"; // Selected seat
+    const clickedSrc = "https://cdn.builder.io/api/v1/image/assets/TEMP/7d942587872f43a85f25f1e57322a69dfa8b7b63"; // Sold seat
+
+    let isClicked = false;
+
+    seat.addEventListener('mouseover', () => {
+      if (!isClicked) seat.src = hoverSrc;
+    });
+
+    seat.addEventListener('mouseout', () => {
+      if (!isClicked) seat.src = originalSrc;
+    });
+
+    seat.addEventListener('click', () => {
+      seat.src = clickedSrc;
+      isClicked = true;
+    });
+  });
+</script>
+
+</body>
+</html>

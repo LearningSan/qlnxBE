@@ -1,0 +1,57 @@
+package Dao;
+
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import Util.ConnectionManager;
+import domain.ChuyenXeDTO;
+
+public class ChuyenXeDao {
+	private Connection con;
+		
+	public ChuyenXeDao() {
+		try {
+			con=ConnectionManager.getInstance().getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
+	public List<ChuyenXeDTO> getDanhSachChuyenXe(String diemDi, String diemDen, String ngayDi) {
+		try {
+			con=ConnectionManager.getInstance().getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	    List<ChuyenXeDTO> danhSach = new ArrayList<ChuyenXeDTO>();
+	    String sql = "SELECT nx.tennhaxe, cx.giokhoihanh, cx.giave\r\n"
+	    		+ "	        FROM chuyenxe cx\r\n"
+	    		+ "	        JOIN hanhtrinh ht ON cx.maht = ht.maht\r\n"
+	    		+ "	        JOIN nhaxe nx ON cx.manhaxe = nx.manhaxe\r\n"
+	    		+ "	        WHERE ht.diemkhoihanh = ? AND ht.diemden = ? AND DATE(cx.giokhoihanh) = ?";
+
+	    
+	    try {
+	    	Connection con=ConnectionManager.getInstance().getConnection();
+	         PreparedStatement stmt = con.prepareStatement(sql);
+	        stmt.setString(1, diemDi);
+	        stmt.setString(2, diemDen);
+	        stmt.setString(3, ngayDi);
+
+	        ResultSet rs = stmt.executeQuery();
+	            while (rs.next()) {
+	                String tenNhaXe = rs.getString("tennhaxe");
+	                Timestamp gioKhoiHanh = rs.getTimestamp("giokhoihanh");
+	                double giaVe = rs.getDouble("giave");
+	                String gioFormatted = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(gioKhoiHanh);
+	                danhSach.add(new ChuyenXeDTO(tenNhaXe, gioKhoiHanh.toString(), giaVe));
+	            }        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return danhSach;
+	}
+}

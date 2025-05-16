@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="timchuyenxestyle.css?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="timchuyenxestyle.css?v=3">
 </head>
+
 <body>
-    <header class="booking-header">
-  <div class="header-container">
-    <div class="logo-section">
-      <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/0e6dc7296b293eb1fe8bf1067e6abf5fa0282e04?placeholderIfAbsent=true" alt="Company Logo" class="logo-image" />
-      <h1 class="main-title">ĐẶT VÉ XE</h1>
+  <header class="booking-header">
+    <div class="header-container">
+      <div class="logo-section">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/0e6dc7296b293eb1fe8bf1067e6abf5fa0282e04?placeholderIfAbsent=true"
+          alt="Company Logo" class="logo-image" />
+        <h1 class="main-title">ĐẶT VÉ XE</h1>
+      </div>
+
     </div>
-    <nav class="auth-nav">
-      <a href="#login" class="auth-link">Đăng nhập</a>
-      <a href="#register" class="auth-link">Đăng ký</a>
-    </nav>
-  </div>
-  <main class="search-section">
-    <img src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/e98ae5dc37175e216fb5f11d11dbff5132269a70?placeholderIfAbsent=true" alt="Background" class="background-image" aria-hidden="true" />
-    <h2 class="search-title">TÌM CHUYẾN XE</h2>
-     <form class="search-form" role="search">
+    <main class="search-section">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/e98ae5dc37175e216fb5f11d11dbff5132269a70?placeholderIfAbsent=true"
+        alt="Background" class="background-image" aria-hidden="true" />
+      <h2 class="search-title">TÌM CHUYẾN XE</h2>
+      <form class="search-form" role="search">
         <div class="location-inputs">
           <div class="input-column">
             <div class="input-wrapper">
@@ -31,9 +34,7 @@
                   alt="Origin icon" class="location-icon" aria-hidden="true" />
                 <select id="origin" name="origin" class="input-select">
                   <option value="">Chọn điểm đi</option>
-                  <option value="hanoi">Hà Nội</option>
-                  <option value="danang">Đà Nẵng</option>
-                  <option value="hochiminh">Hồ Chí Minh</option>
+
                 </select>
               </div>
 
@@ -47,9 +48,6 @@
                   alt="Destination icon" class="location-icon" aria-hidden="true" />
                 <select id="destination" name="destination" class="input-select">
                   <option value="">Chọn điểm đến</option>
-                  <option value="hanoi">Hà Nội</option>
-                  <option value="danang">Đà Nẵng</option>
-                  <option value="hochiminh">Hồ Chí Minh</option>
                 </select>
               </div>
 
@@ -65,21 +63,87 @@
 
           </div>
         </div>
-        <button type="submit" class="search-button">Tìm chuyến</button>
+<button type="button" class="search-button" onclick="goToDanhSach()">Tìm chuyến</button>
       </form>
-  </main>
-</header>
 
+    </main>
+  </header>
 <script>
-  document.querySelectorAll('.input-group').forEach(group => {
-    const dateInput = group.querySelector('input[type="date"]');
-    if (dateInput) {
-      group.addEventListener('click', () => {
-        dateInput.showPicker && dateInput.showPicker(); // For modern browsers
-        dateInput.focus(); // Fallback
+function goToDanhSach() {
+	  const origin = document.getElementById('origin').value;
+	  const destination = document.getElementById('destination').value;
+	  const date = document.getElementById('departure-date').value;
+
+	  // Encode and construct the URL with query parameters
+	  const url = `danhsachcx.html?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&date=${encodeURIComponent(date)}`;
+
+	  window.location.href = url;
+	}
+document.addEventListener('DOMContentLoaded', function () {
+    // Date picker logic
+    document.querySelectorAll('.input-group').forEach(group => {
+      const dateInput = group.querySelector('input[type="date"]');
+      if (dateInput) {
+        group.addEventListener('click', () => {
+          dateInput.showPicker && dateInput.showPicker(); // For modern browsers
+          dateInput.focus(); // Fallback
+        });
+      }
+    });
+
+    // Fetch origin and destination data
+    fetch("/Loginservlet/TimChuyenXe")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+       .then(data => {
+      console.log("Data received:", data);
+
+      const originSelect = document.getElementById('origin');
+      const destinationSelect = document.getElementById('destination');
+
+      // Xóa các option cũ (giữ lại option "Chọn điểm đi/đến")
+      originSelect.length = 1;
+      destinationSelect.length = 1;
+
+      // Đổ dữ liệu điểm đi
+      data.origins.forEach(origin => {
+        const option = document.createElement('option');
+        option.value = origin;
+        option.textContent = origin;
+        originSelect.appendChild(option);
       });
-    }
+
+      // Đổ dữ liệu điểm đến
+      data.destinations.forEach(destination => {
+        const option = document.createElement('option');
+        option.value = destination;
+        option.textContent = destination;
+        destinationSelect.appendChild(option);
+      });
+    })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
   });
+document.getElementById('timchuyen').addEventListener('click', function () {
+    const diemdi = document.getElementById('diemdi').value;
+    const diemden = document.getElementById('diemden').value;
+    const ngaydi = document.getElementById('ngaydi').value;
+
+    if (!diemdi || !diemden || !ngaydi) {
+        alert("Vui lòng chọn đầy đủ điểm đi, điểm đến và ngày đi");
+        return;
+    }
+
+    // Gắn vào URL để truyền sang trang chonghe.html
+    const url = `chonghe.html?diemdi=${encodeURIComponent(diemdi)}&diemden=${encodeURIComponent(diemden)}&ngaydi=${ngaydi}`;
+    window.location.href = url;
+});	
 </script>
 </body>
+
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Vé Xe</title>
+    <link rel="stylesheet" href="chitietdatvestyle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="ticket-container">
+        <div class="ticket-wrapper">
+            <header>
+                <h1 class="ticket-title">CHI TIẾT VÉ</h1>
+            </header>
+            <section class="ticket-card">
+                <div class="ticket-details">
+                    <div class="ticket-info bus-code">Mã Xe: <span id="maxe">XC01</span></div>
+                    <div class="ticket-info company-name">Tên nhà xe: <span id="tennhaxe">SG Nam Bộ</span></div>
+                    <div class="ticket-info departure-time">Ngày giờ khởi hành: <span
+                            id="thoigiankhoihanh">21/05/2025-09:00</span></div>
+                    <div class="ticket-info route">
+                        Điểm đi → Điểm đến:
+                        <span id="diemdi">TP. Hồ Chí Minh</span> → <span id="diemden">Nha Trang</span>
+                    </div>
+                    <div class="ticket-info price">Giá tiền: <span id="giatien">2.000.000 đ</span></div>
+                    <div class="ticket-info seat-number">Số ghế: <span id="soghe">A07</span></div>
+
+                    <input type="submit" class="thanhtoan" value="Thanh toán">
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

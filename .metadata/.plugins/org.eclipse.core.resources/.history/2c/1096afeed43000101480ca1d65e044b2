@@ -1,0 +1,15 @@
+package domain;
+
+import java.util.*;
+
+public class NhaXe {
+    private int manhaxe;
+    private String tennhaxe;
+    private String hotline;
+    private String email;
+    private String website;
+    private double danhgia;
+    private List<LoaiXe> danhSachLoaiXe;
+    private List<ChuyenXe> danhSachChuyenXe;
+    private List<ThongTinNhaXe> danhSachThongTin;
+}
