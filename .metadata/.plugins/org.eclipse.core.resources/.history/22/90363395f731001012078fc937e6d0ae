@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="timchuyenxestyle.css?v=3">
+</head>
+
+<body>
+  <header class="booking-header">
+    <div class="header-container">
+      <div class="logo-section">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/0e6dc7296b293eb1fe8bf1067e6abf5fa0282e04?placeholderIfAbsent=true"
+          alt="Company Logo" class="logo-image" />
+        <h1 class="main-title">ĐẶT VÉ XE</h1>
+      </div>
+
+    </div>
+    <main class="search-section">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/e98ae5dc37175e216fb5f11d11dbff5132269a70?placeholderIfAbsent=true"
+        alt="Background" class="background-image" aria-hidden="true" />
+      <h2 class="search-title">TÌM CHUYẾN XE</h2>
+      <form class="search-form" role="search">
+        <div class="location-inputs">
+          <div class="input-column">
+            <div class="input-wrapper">
+              <div class="input-group">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/ed8ea5be0c7e5283fa3fdcb51c225758061136c7?placeholderIfAbsent=true"
+                  alt="Origin icon" class="location-icon" aria-hidden="true" />
+                <select id="origin" name="origin" class="input-select">
+                  <option value="">Chọn điểm đi</option>
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+          <div class="input-column">
+            <div class="input-wrapper">
+              <div class="input-group">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/ed8ea5be0c7e5283fa3fdcb51c225758061136c7?placeholderIfAbsent=true"
+                  alt="Destination icon" class="location-icon" aria-hidden="true" />
+                <select id="destination" name="destination" class="input-select">
+                  <option value="">Chọn điểm đến</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="date-input">
+          <div class="input-group">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/fae70a4a6e624a87ae7b4da05d12668c/4182c7395ab6186cbde71f45949797d1c8b83001?placeholderIfAbsent=true"
+              alt="Calendar icon" class="calendar-icon" aria-hidden="true" />
+            <input type="date" id="departure-date" name="departure-date" class="input-select" />
+
+          </div>
+        </div>
+<button type="button" class="search-button" onclick="goToDanhSach()">Tìm chuyến</button>
+      </form>
+
+    </main>
+  </header>
+<script>
+function goToDanhSach() {
+	  const diemdi = document.getElementById('origin').value;
+	  const diemden = document.getElementById('destination').value;
+	  const thoigian = document.getElementById('departure-date').value;
+
+	  if (!diemdi || !diemden || !thoigian) {
+	    alert("Vui lòng chọn đầy đủ điểm đi, điểm đến và ngày đi");
+	    return;
+	  }
+
+	  // Store in sessionStorage
+	  sessionStorage.setItem('diemdi', diemdi);
+	  sessionStorage.setItem('diemden', diemden);
+	  sessionStorage.setItem('thoigian', thoigian);
+
+	  // Optionally pass in query too, if needed
+	  const url = `danhsachcx.html?diemdi=${encodeURIComponent(diemdi)}&diemden=${encodeURIComponent(diemden)}&thoigian=${encodeURIComponent(thoigian)}`;
+
+	  window.location.href = url;
+	}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Date picker logic
+    document.querySelectorAll('.input-group').forEach(group => {
+      const dateInput = group.querySelector('input[type="date"]');
+      if (dateInput) {
+        group.addEventListener('click', () => {
+          dateInput.showPicker && dateInput.showPicker(); // For modern browsers
+          dateInput.focus(); // Fallback
+        });
+      }
+    });
+
+    // Fetch origin and destination data
+    fetch("/Loginservlet/TimChuyenXe")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+       .then(data => {
+      console.log("Data received:", data);
+
+      const originSelect = document.getElementById('origin');
+      const destinationSelect = document.getElementById('destination');
+
+      // Xóa các option cũ (giữ lại option "Chọn điểm đi/đến")
+      originSelect.length = 1;
+      destinationSelect.length = 1;
+
+      // Đổ dữ liệu điểm đi
+      data.origins.forEach(origin => {
+        const option = document.createElement('option');
+        option.value = origin;
+        option.textContent = origin;
+        originSelect.appendChild(option);
+      });
+
+      // Đổ dữ liệu điểm đến
+      data.destinations.forEach(destination => {
+        const option = document.createElement('option');
+        option.value = destination;
+        option.textContent = destination;
+        destinationSelect.appendChild(option);
+      });
+    })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Vé Xe</title>
+    <link rel="stylesheet" href="chitietdatvestyle.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="ticket-container">
+        <div class="ticket-wrapper">
+            <header>
+                <h1 class="ticket-title">CHI TIẾT VÉ</h1>
+            </header>
+            <section class="ticket-card">
+                <div class="ticket-details">
+                    <div class="ticket-info bus-code">Mã Xe: <span id="maxe"></span></div>
+                    <div class="ticket-info company-name">Tên nhà xe: <span id="tennhaxe"></span></div>
+                    <div class="ticket-info departure-time">Ngày giờ khởi hành: <span
+                            id="thoigiankhoihanh"></span></div>
+                    <div class="ticket-info route">
+                        Điểm đi → Điểm đến:
+                        <span id="diemdi"></span> → <span id="diemden"></span>
+                    </div>	
+                    <div class="ticket-info price">Giá tiền: <span id="giatien"></span></div>
+                    <div class="ticket-info seat-number">Số ghế: <span id="soghe"></span></div>
+
+                    <input type="submit" class="thanhtoan" value="Thanh toán">
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const diemdi = sessionStorage.getItem('diemdi');
+    const diemden = sessionStorage.getItem('diemden');
+    const ngaydi = sessionStorage.getItem('ngaydi');
+    const machuyenxe = sessionStorage.getItem('machuyen');
+    const thoigiankhoihanh = sessionStorage.getItem('giokhoihanh');
+    const giatien = sessionStorage.getItem('giatien');
+    const maghe = sessionStorage.getItem('maghe');
+    const tennhaxe=sessionStorage.getItem('tenchuyen');
+    const giatien=sessionStorage.getItem('giatien');
+    document.getElementById('diemdi').textContent = diemdi || '---';
+    document.getElementById('diemden').textContent = diemden || '---';
+    document.getElementById('thoigiankhoihanh').textContent = thoigiankhoihanh || '---';
+    document.getElementById('giatien').textContent = giatien || '---';
+    document.getElementById('soghe').textContent = maghe || '---';
+    document.getElementById('maxe').textContent = machuyenxe || '---';
+    document.getElementById('tennhaxe').textContent = tennhaxe || '---';
+    document.getElementById('giatien').textContent = giatien || '---';
+
+    // Nếu cần, có thể dùng machuyenxe để truy vấn thêm từ database qua API
+});
+</script>
+</html>

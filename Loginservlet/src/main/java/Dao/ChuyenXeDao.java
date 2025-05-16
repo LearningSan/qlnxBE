@@ -26,7 +26,7 @@ public class ChuyenXeDao {
 			e.printStackTrace();
 		};
 	    List<ChuyenXeDTO> danhSach = new ArrayList<ChuyenXeDTO>();
-	    String sql = "SELECT nx.tennhaxe, cx.giokhoihanh, cx.giave\r\n"
+	    String sql = "SELECT cx.macx,nx.tennhaxe, cx.giokhoihanh, cx.giave\r\n"
 	    		+ "	        FROM chuyenxe cx\r\n"
 	    		+ "	        JOIN hanhtrinh ht ON cx.maht = ht.maht\r\n"
 	    		+ "	        JOIN nhaxe nx ON cx.manhaxe = nx.manhaxe\r\n"
@@ -42,11 +42,12 @@ public class ChuyenXeDao {
 
 	        ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
+	            	int id=rs.getInt("macx");
 	                String tenNhaXe = rs.getString("tennhaxe");
 	                Timestamp gioKhoiHanh = rs.getTimestamp("giokhoihanh");
 	                double giaVe = rs.getDouble("giave");
 	                String gioFormatted = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(gioKhoiHanh);
-	                danhSach.add(new ChuyenXeDTO(tenNhaXe, gioKhoiHanh.toString(), giaVe));
+	                danhSach.add(new ChuyenXeDTO(id,tenNhaXe, gioKhoiHanh.toString(), giaVe));
 	            }        
 	    } catch (SQLException e) {
 	        e.printStackTrace();

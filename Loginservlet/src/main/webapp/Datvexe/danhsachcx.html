@@ -95,6 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const ngaydi = button.getAttribute('data-ngaydi');
           const machuyenxe = button.getAttribute('data-machuyenxe');
 
+          sessionStorage.setItem('diemdi', diemdi);
+          sessionStorage.setItem('diemden', diemden);
+          sessionStorage.setItem('ngaydi', ngaydi);
+          sessionStorage.setItem('machuyen', chuyen.maChuyenXe.toString());
+          sessionStorage.setItem('giokhoihanh', chuyen.gioKhoiHanh); // giờ khởi hành đầy đủ
+          sessionStorage.setItem('giave', chuyen.giaVe.toString()); 
+          sessionStorage.setItem('tenchuyen',chuyen.tenNhaXe);
           const url = `/Loginservlet/Datvexe/chonghe.html?diemdi=${encodeURIComponent(diemdi)}&diemden=${encodeURIComponent(diemden)}&ngaydi=${encodeURIComponent(ngaydi)}&machuyenxe=${encodeURIComponent(machuyenxe)}`;
           window.location.href = url;
         });

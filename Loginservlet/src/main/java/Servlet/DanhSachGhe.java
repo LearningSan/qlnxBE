@@ -27,7 +27,7 @@ public class DanhSachGhe extends HttpServlet {
     public DanhSachGhe() {
         super();
         // TODO Auto-generated constructor stub
-    }
+    }	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

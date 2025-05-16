@@ -1,17 +1,33 @@
 package domain;
 
 public class ChuyenXeDTO {
+	  private int maChuyenXe;
 	 private String tenNhaXe;
 	    private String gioKhoiHanh;
 	    private double giaVe;
 
-	    public ChuyenXeDTO(String tenNhaXe, String gioKhoiHanh, double giaVe) {
-	        this.tenNhaXe = tenNhaXe;
-	        this.gioKhoiHanh = gioKhoiHanh;
-	        this.giaVe = giaVe;
-	    }
 
-	    public String getTenNhaXe() {
+	    public ChuyenXeDTO() {
+			super();
+		}
+
+		public ChuyenXeDTO(int maChuyenXe, String tenNhaXe, String gioKhoiHanh, double giaVe) {
+			super();
+			this.maChuyenXe = maChuyenXe;
+			this.tenNhaXe = tenNhaXe;
+			this.gioKhoiHanh = gioKhoiHanh;
+			this.giaVe = giaVe;
+		}
+
+		public int getMaChuyenXe() {
+			return maChuyenXe;
+		}
+
+		public void setMaChuyenXe(int maChuyenXe) {
+			this.maChuyenXe = maChuyenXe;
+		}
+
+		public String getTenNhaXe() {
 	        return tenNhaXe;
 	    }
 

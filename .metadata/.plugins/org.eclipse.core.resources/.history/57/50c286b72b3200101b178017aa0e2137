@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách chuyến xe</title>
+  <link rel="stylesheet" href="danhsachcxstyle.css" />
+
+</head>
+<body>
+  <header class="schedule-container">
+    <div class="schedule-wrapper">
+      <h1 class="schedule-title">DANH SÁCH CHUYẾN XE</h1>
+      <div class="schedule-table">
+        <div class="table-header">
+          <div class="header-cell">Nhà xe</div>
+          <div class="header-cell">Giờ xuất phát</div>
+          <div class="header-cell">Giá vé</div>
+          <div class="header-cell">Chọn chuyến</div>
+        </div>  
+        <div class="table-body" id="dynamic-rows">
+          <!-- Dynamic rows will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const origin = params.get("origin");
+  const destination = params.get("destination");
+  const date = params.get("date");
+
+  // Check if query parameters are available
+  if (!origin || !destination || !date) {
+    console.error("Missing query parameters");
+    return;
+  }
+
+  function formatDateTime(dateStr) {
+    const date = new Date(dateStr);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hour = String(date.getHours()).padStart(2, '0');
+    const minute = String(date.getMinutes()).padStart(2, '0');
+    return `${day}/${month}/${year} ${hour}:${minute}`;
+  }
+
+  const fetchUrl = `/Loginservlet/ListChuyenXe?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&date=${encodeURIComponent(date)}`;
+  console.log("Fetching data from:", fetchUrl);
+
+  fetch(fetchUrl)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log("Data received:", data);
+      const tableBody = document.querySelector('.table-body');
+      tableBody.innerHTML = ""; // Clear old content
+
+      if (data.length === 0) {
+        tableBody.innerHTML = `<div class="table-row"><div class="cell" colspan="4">Không tìm thấy chuyến xe phù hợp.</div></div>`;
+        return;
+      }
+
+      data.forEach(chuyen => {
+        const row = document.createElement('div');
+        row.classList.add('table-row');
+
+        row.innerHTML = `
+          <div class="cell">${chuyen.tenNhaXe}</div>
+          <div class="cell">${formatDateTime(chuyen.gioKhoiHanh)}</div>
+          <div class="cell">${chuyen.giaVe.toLocaleString('vi-VN')}vnđ</div>
+          <div class="cell">
+            <button class="book-button"
+              data-diemdi="${origin}"
+              data-diemden="${destination}"
+              data-ngaydi="${date}"
+              data-machuyenxe="${chuyen.maChuyenXe}">
+              Chọn chuyến
+            </button>
+          </div>
+        `;
+
+        tableBody.appendChild(row);
+
+        // Attach button click handler right after appending
+        const button = row.querySelector('.book-button');
+        button.addEventListener('click', () => {
+          const diemdi = button.getAttribute('data-diemdi');
+          const diemden = button.getAttribute('data-diemden');
+          const ngaydi = button.getAttribute('data-ngaydi');
+          const machuyenxe = button.getAttribute('data-machuyenxe');
+
+          sessionStorage.setItem('diemdi', diemdi);
+          sessionStorage.setItem('diemden', diemden);
+          sessionStorage.setItem('ngaydi', ngaydi);
+          sessionStorage.setItem('machuyen', chuyen.maChuyenXe);
+          sessionStorage.setItem('giokhoihanh', chuyen.gioKhoiHanh); // giờ khởi hành đầy đủ
+          sessionStorage.setItem('giave', chuyen.giaVe); // lưu giá vé để hiển thị lại sau
+          sessionStorage.setItem('tenchuyen',chuyen.tenNhaXe);
+          sessionStorage.setItem('giatien',chuyen.giaVe);
+          const url = `/Loginservlet/Datvexe/chonghe.html?diemdi=${encodeURIComponent(diemdi)}&diemden=${encodeURIComponent(diemden)}&ngaydi=${encodeURIComponent(ngaydi)}&machuyenxe=${encodeURIComponent(machuyenxe)}`;
+          window.location.href = url;
+        });
+      });
+    })
+    .catch(error => {
+      console.error("Lỗi khi tải danh sách chuyến xe:", error);
+      const tableBody = document.querySelector('.table-body');
+      tableBody.innerHTML = `<div class="table-row"><div class="cell" colspan="4">Không thể tải dữ liệu. Vui lòng thử lại sau.</div></div>`;
+    });
+});
+</script>
+
+</body>
+</html>

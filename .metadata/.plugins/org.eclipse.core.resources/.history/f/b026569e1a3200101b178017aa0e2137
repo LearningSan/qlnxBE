@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách chuyến xe</title>
+  <link rel="stylesheet" href="danhsachcxstyle.css" />
+
+</head>
+<body>
+  <header class="schedule-container">
+    <div class="schedule-wrapper">
+      <h1 class="schedule-title">DANH SÁCH CHUYẾN XE</h1>
+      <div class="schedule-table">
+        <div class="table-header">
+          <div class="header-cell">Nhà xe</div>
+          <div class="header-cell">Giờ xuất phát</div>
+          <div class="header-cell">Giá vé</div>
+          <div class="header-cell">Chọn chuyến</div>
+        </div>  
+        <div class="table-body" id="dynamic-rows">
+          <!-- Dynamic rows will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Read stored search parameters
+      const diemdi = sessionStorage.getItem('diemdi');
+      const diemden = sessionStorage.getItem('diemden');
+      const ngaydi = sessionStorage.getItem('thoigian');
+
+      if (!diemdi || !diemden || !ngaydi) {
+        console.error("Thiếu thông tin điểm đi, điểm đến hoặc thời gian");
+        return;
+      }
+
+      function formatDateTime(dateStr) {
+        const date = new Date(dateStr);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        const hour = String(date.getHours()).padStart(2, '0');
+        const minute = String(date.getMinutes()).padStart(2, '0');
+        return `${day}/${month}/${year} ${hour}:${minute}`;
+      }
+
+      const fetchUrl = `/Loginservlet/ListChuyenXe?origin=${encodeURIComponent(diemdi)}&destination=${encodeURIComponent(diemden)}&date=${encodeURIComponent(ngaydi)}`;
+      console.log("Fetching data from:", fetchUrl);
+
+      fetch(fetchUrl)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          console.log("Data received:", data);
+          const tableBody = document.querySelector('.table-body');
+          tableBody.innerHTML = ""; // Clear old content
+
+          if (data.length === 0) {
+            tableBody.innerHTML = `<div class="table-row"><div class="cell" colspan="4">Không tìm thấy chuyến xe phù hợp.</div></div>`;
+            return;
+          }
+
+          data.forEach(chuyen => {
+            const row = document.createElement('div');
+            row.classList.add('table-row');
+
+            row.innerHTML = `
+              <div class="cell">${chuyen.tenNhaXe}</div>
+              <div class="cell">${formatDateTime(chuyen.gioKhoiHanh)}</div>
+              <div class="cell">${chuyen.giaVe.toLocaleString('vi-VN')}vnđ</div>
+              <div class="cell">
+                <button class="book-button"
+                  data-machuyenxe="${chuyen.maChuyenXe}">
+                  Chọn chuyến
+                </button>
+              </div>
+            `;
+
+            tableBody.appendChild(row);
+
+            const button = row.querySelector('.book-button');
+            button.addEventListener('click', () => {
+              const chuyenxe = {
+                diemdi,
+                diemden,
+                ngaydi,
+                machuyenxe: chuyen.maChuyenXe,
+                tenNhaXe: chuyen.tenNhaXe,
+                gioKhoiHanh: chuyen.gioKhoiHanh,
+                giaVe: chuyen.giaVe
+              };
+
+              sessionStorage.setItem('chuyenxe', JSON.stringify(chuyenxe));
+
+              window.location.href = '/Loginservlet/Datvexe/chonghe.html';
+            });
+          });
+        })
+        .catch(error => {
+          console.error("Lỗi khi tải danh sách chuyến xe:", error);
+          const tableBody = document.querySelector('.table-body');
+          tableBody.innerHTML = `<div class="table-row"><div class="cell" colspan="4">Không thể tải dữ liệu. Vui lòng thử lại sau.</div></div>`;
+        });
+    });
+  </script>
+
+</body>
+</html>
